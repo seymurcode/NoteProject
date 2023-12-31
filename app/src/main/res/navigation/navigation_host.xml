@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/notesFragment">
+
+
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.homework.noteproject.features.fragments.Notes.NotesFragment"
+        android:label="@string/notes"
+        tools:layout="@layout/fragment_notes" >
+
+        <action
+            android:id="@+id/action_add"
+            app:destination="@id/addNoteFragment">
+        </action>
+
+        <action
+            android:id="@+id/action_edit"
+            app:destination="@+id/editNoteFragment">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.homework.noteproject.features.fragments.Profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" >
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.homework.noteproject.features.fragments.AddNote.AddNoteFragment"
+        android:label="@string/add_note"
+        tools:layout="@layout/fragment_add_note">
+
+        <action
+            android:id="@+id/action_add_to_notes"
+            app:destination="@id/notesFragment">
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.homework.noteproject.features.fragments.EditNote.EditNoteFragment"
+        android:label="@string/editNote"
+        tools:layout="@layout/fragment_edit_note" >
+        <argument
+            android:name="note"
+            app:argType="com.homework.noteproject.model.Note" />
+
+        <action
+            android:id="@+id/action_edit_to_notes"
+            app:destination="@id/notesFragment">
+        </action>
+    </fragment>
+
+</navigation>
