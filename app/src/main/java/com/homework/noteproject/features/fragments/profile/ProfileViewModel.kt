@@ -1,4 +1,4 @@
-package com.homework.noteproject.features.fragments.Profile
+package com.homework.noteproject.features.fragments.profile
 
 import androidx.lifecycle.ViewModel
 import com.homework.noteproject.repository.NoteRepository

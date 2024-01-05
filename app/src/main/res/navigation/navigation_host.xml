@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/notesFragment"
-        android:name="com.homework.noteproject.features.fragments.Notes.NotesFragment"
+        android:name="com.homework.noteproject.features.fragments.notes.NotesFragment"
         android:label="@string/notes"
         tools:layout="@layout/fragment_notes" >
 
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.homework.noteproject.features.fragments.Profile.ProfileFragment"
+        android:name="com.homework.noteproject.features.fragments.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" >
 
@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.homework.noteproject.features.fragments.AddNote.AddNoteFragment"
+        android:name="com.homework.noteproject.features.fragments.addNote.AddNoteFragment"
         android:label="@string/add_note"
         tools:layout="@layout/fragment_add_note">
 
@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/editNoteFragment"
-        android:name="com.homework.noteproject.features.fragments.EditNote.EditNoteFragment"
+        android:name="com.homework.noteproject.features.fragments.editNote.EditNoteFragment"
         android:label="@string/editNote"
         tools:layout="@layout/fragment_edit_note" >
         <argument

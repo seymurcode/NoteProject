@@ -10,9 +10,13 @@ interface NoteRepoInterface {
 
 }
 
-class NoteRepository @Inject constructor(private val noteDao: NoteDao) {
+class NoteRepository @Inject constructor(private val noteDao: NoteDao) : NoteRepoInterface{
     suspend fun insert(note: Note){
         noteDao.insert(note)
+    }
+
+    suspend fun update(note: Note){
+        noteDao.update(note)
     }
 
     suspend fun delete(note: Note){

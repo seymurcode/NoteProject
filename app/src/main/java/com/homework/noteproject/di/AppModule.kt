@@ -1,6 +1,7 @@
 package com.homework.noteproject.di
 
 import android.content.Context
+import androidx.annotation.StringRes
 import androidx.room.Room
 import com.homework.noteproject.dao.NoteDao
 import com.homework.noteproject.db.AppDatabase

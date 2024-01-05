@@ -1,18 +1,14 @@
-package com.homework.noteproject.features.fragments.Notes
+package com.homework.noteproject.features.fragments.notes
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.lesson2.features.adapters.NoteListAdapter
-import com.homework.noteproject.R
 import com.homework.noteproject.databinding.FragmentNotesBinding
-import com.homework.noteproject.databinding.ListviewItemNoteBinding
 import com.homework.noteproject.model.Note
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -27,13 +23,10 @@ class NotesFragment : Fragment() {
     lateinit var binding: FragmentNotesBinding
     var adapter : NoteListAdapter?=null
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
 
         binding= FragmentNotesBinding.inflate(inflater)
         binding.viewModel = viewModel
@@ -43,14 +36,14 @@ class NotesFragment : Fragment() {
 
             runBlocking {
                 launch {
-                    viewModel.noteRepository.getAll().observe(this@NotesFragment.viewLifecycleOwner) { productList->
+                    viewModel.getAllData().observe(this@NotesFragment.viewLifecycleOwner) { productList->
 
                         adapter=  NoteListAdapter(it, productList.toMutableList(),
                             onClickEdit = {
                                 openEditPage(it)
                         },
                             onClickDelete = {
-
+                                deleteNote(it)
                         })
                         binding.listView.adapter=adapter
                     }
@@ -61,6 +54,9 @@ class NotesFragment : Fragment() {
             }
         }
 
+        binding.idFABAdd.setOnClickListener {
+            openAddPage()
+        }
 
 
         return binding.root
@@ -72,10 +68,12 @@ class NotesFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    fun openAddPage(note: Note) {
+    fun openAddPage() {
         val action = NotesFragmentDirections.actionAdd()
         findNavController().navigate(action)
     }
 
-
+    fun deleteNote(note: Note){
+        viewModel.delete(note)
+    }
 }

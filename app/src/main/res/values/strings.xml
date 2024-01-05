@@ -2,9 +2,12 @@
     <string name="app_name">NoteProject</string>
     <string name="notes">Notlar</string>
     <string name="profile">Hesabım</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_note">Not ekle</string>
     <string name="editNote">Not düzenle</string>
     <string name="save">Kaydet</string>
+    <string name="enter_title">Enter the title</string>
+    <string name="enter_description">Enter the description</string>
+    <string name="add_error">Eksik bilgiler!</string>
+    <string name="edit_error">Düzenleme bilgilerini tam girin!</string>
 </resources>

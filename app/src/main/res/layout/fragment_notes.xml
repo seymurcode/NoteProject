@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-xmlns:app="http://schemas.android.com/apk/res-auto">
-
-<data>
-    <variable
-        name="viewModel"
-        type="com.homework.noteproject.features.fragments.Notes.NotesViewModel" />
-</data>
-
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.fragments.Notes.NotesFragment">
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.homework.noteproject.features.fragments.notes.NotesViewModel" />
+    </data>
 
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_width="match_parent">
-
+        tools:context="com.homework.noteproject.features.fragments.notes.NotesFragment">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/idFABAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:background="@color/gold_dark"
@@ -34,47 +27,54 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:backgroundTint="@color/gold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white" />
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appbar"
+            app:tint="@color/white"
+            android:layout_gravity="bottom|right"/>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/toolbar"
+                <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_back"
-                    app:titleTextColor="@color/black"
-                    app:subtitleTextColor="@color/black"
-                    app:title="@string/notes">
+                    android:layout_height="150dp"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                </com.google.android.material.appbar.MaterialToolbar>
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_collapseMode="pin"
+                        app:navigationIcon="@drawable/ic_notes"
+                        app:titleTextColor="@color/black"
+                        app:subtitleTextColor="@color/black"
+                        app:title="@string/notes">
 
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
+                    </com.google.android.material.appbar.MaterialToolbar>
 
-        </com.google.android.material.appbar.AppBarLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appbar">
-        </ListView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+            </ListView>
+            <!--<androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            </androidx.core.widget.NestedScrollView>-->
 
 
-</FrameLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </FrameLayout>
 </layout>
