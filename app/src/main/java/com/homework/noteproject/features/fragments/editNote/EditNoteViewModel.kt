@@ -4,15 +4,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.homework.noteproject.R
-import com.homework.noteproject.di.StringResourcesProvider
 import com.homework.noteproject.model.Note
 import com.homework.noteproject.repository.NoteRepository
+import com.homework.noteproject.repository.ResourceRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class EditNoteViewModel @Inject constructor(var noteRepository: NoteRepository, val resourcesProvider: StringResourcesProvider) : ViewModel() {
+class EditNoteViewModel @Inject constructor(var noteRepository: NoteRepository, val resourcesProvider: ResourceRepository) : ViewModel() {
 
     var editNoteEvent = MutableLiveData<Boolean>()
     var titleText = MutableLiveData<String>()

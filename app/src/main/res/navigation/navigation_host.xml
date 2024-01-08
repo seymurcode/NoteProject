@@ -62,4 +62,23 @@
         </action>
     </fragment>
 
+    <dialog
+        android:id="@+id/addNoteDialogFragment"
+        android:name="com.homework.noteproject.features.fragments.addNoteDialog.AddNoteDialogFragment"
+        tools:layout="@layout/fragment_add_note_dialog">
+
+    </dialog>
+
+    <fragment
+        android:id="@+id/noteFragmentRecycle"
+        android:name="com.homework.noteproject.features.fragments.notesRecycleView.NoteFragmentRecycle"
+        android:label="@string/notes"
+        tools:layout="@layout/fragment_notes" >
+
+        <action
+            android:id="@+id/action_adddialog"
+            app:destination="@id/addNoteDialogFragment">
+        </action>
+    </fragment>
+
 </navigation>
